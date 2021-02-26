@@ -1,0 +1,61 @@
+body {
+		color: #222;
+		font: 60px/1em "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		padding: 0;
+		margin: 0 auto;
+		text-align: center;
+		width: 50%;
+		text-rendering: optimizeLegibility;
+	}
+	body.night { background: #222; color: aliceblue;}
+	span { color: #03a9f4; font-weight: bold; }
+	#oof { background: #ababab50; color: #222; }
+	.night #oof { background: #ababab30; color: #fff; }
+	a { text-decoration: none; color: #b8b8b8; }
+	#attrib { font-size: 0.3em; line-height: 1.5em; color: #666 }
+	p { margin: 0.65em 0; }
+	#oops {
+		padding: 1em ;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-right: -50%;
+		transform: translate(-50%, -50%) 
+	}
+	#tipsy { margin: 0; padding:0; font-size: 0.3em;}
+	#tipsy span { color: #b8b8b8; font-weight: normal;}
+	#tipsy span:hover { text-decoration: underline; }
+	.tip { cursor: pointer; }
+
+	.toggle
+	{
+		display: inline-block;
+		height: 0.8em;
+		width: 0.8em;
+		cursor: pointer;
+		border: 2px solid #222;
+		border-radius: 5px;
+		transition: 0.5s;
+		padding: 0.1em;
+		margin: 0 0 3px 0;
+		line-height: 100%;
+		vertical-align: middle;
+		fill: #222;
+	}
+
+	.toggle.active
+	{
+		fill: #fff;
+		border: 2px solid #fff;
+		height: 0.8em;
+		width: 0.8em;
+	}
+
+	.toggle .dayIcon { display: none;	}
+	.toggle .nightIcon { display: block; }
+	.toggle.active .nightIcon	{ display: none; }
+	.toggle.active .dayIcon	{ display: block; }
+
+	@media only screen and (max-device-width: 480px) {
+		body { font-size: 35px; padding: 10px; margin: 0; width: 100%;}
+	}
