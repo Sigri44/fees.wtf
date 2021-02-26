@@ -8,7 +8,7 @@ body {
 		text-rendering: optimizeLegibility;
 	}
 	body.night { background: #222; color: aliceblue;}
-	span { color: #03a9f4; font-weight: bold; }
+	span { color: #f4ce03; font-weight: bold; }
 	#oof { background: #ababab50; color: #222; }
 	.night #oof { background: #ababab30; color: #fff; }
 	a { text-decoration: none; color: #b8b8b8; }
