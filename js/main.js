@@ -99,16 +99,16 @@ async function getTxs(address) {
     }, function() {
       $(this).css('cursor', 'auto');
     });
-    $('#gasFeeTotal').text('Îž' + comma((gasFeeTotal/1e18).toFixed(3)));
+    $('#gasFeeTotal').text('&#7686' + comma((gasFeeTotal/1e18).toFixed(3)));
     
     if (nOutFail > 0) {
-      $('#gasFeeTotalFail').html('Îž' + (gasFeeTotalFail/1e18).toFixed(3));
+      $('#gasFeeTotalFail').html('&#7686;' + (gasFeeTotalFail/1e18).toFixed(3));
       var oof = Math.max(...gasFeeFail)/1e18;
       if (oof > 0.1) {
         var i = gasFeeFail.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
         var tx = txsOutFail[i];
         $('<p><a id="oof" href="https://bscscan.com/tx/' + 
-        tx.hash + '">This one</a> cost <span id="oofCost">Îž' + 
+        tx.hash + '">This one</a> cost <span id="oofCost">Ḇ' + 
         (gasFeeFail[i]/1e18).toFixed(3) + '</span>.</p>').insertBefore($('#tipsy'))
       }
     }  else {
