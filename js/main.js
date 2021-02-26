@@ -120,7 +120,7 @@ async function getTxs(address) {
     }
   } else {
     $('#gasUsedTotal').text(0);
-    $('#gasFeeTotal').text('Îž' + 0);
+    $('#gasFeeTotal').text('B' + 0);
   }
 }
 
