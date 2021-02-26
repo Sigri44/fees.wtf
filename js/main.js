@@ -99,10 +99,10 @@ async function getTxs(address) {
     }, function() {
       $(this).css('cursor', 'auto');
     });
-    $('#gasFeeTotal').text('&#7686' + comma((gasFeeTotal/1e18).toFixed(3)));
+    $('#gasFeeTotal').text('Ḇ' + comma((gasFeeTotal/1e18).toFixed(3)));
     
     if (nOutFail > 0) {
-      $('#gasFeeTotalFail').html('&#7686;' + (gasFeeTotalFail/1e18).toFixed(3));
+      $('#gasFeeTotalFail').html('Ḇ' + (gasFeeTotalFail/1e18).toFixed(3));
       var oof = Math.max(...gasFeeFail)/1e18;
       if (oof > 0.1) {
         var i = gasFeeFail.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
@@ -120,7 +120,7 @@ async function getTxs(address) {
     }
   } else {
     $('#gasUsedTotal').text(0);
-    $('#gasFeeTotal').text('B' + 0);
+    $('#gasFeeTotal').text('Ḇ' + 0);
   }
 }
 
