@@ -26,7 +26,7 @@ function comma(x) {
 }
 
 async function getTxs(address) {
-  var ethusd = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
+  var ethusd = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd')
   .then(response => {return response.json()})
   .catch(err => {
     console.log('(â•¯Â°â–¡Â°)â•¯ï¸µ â”»â”â”»', err);
@@ -34,8 +34,8 @@ async function getTxs(address) {
   ethusd = ethusd.ethereum.usd;
   console.log('ETHUSD: $' + ethusd);
   
-  let key = "T9RV3FGW573WX9YX45F1Z89MEMEUNQXUC7"
-  var u = `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${key}`
+  let key = "UWB7YUCVQXT7TGFK41TNJSJBIHDQ1JGU9D"
+  var u = `https://api.bscscan.com/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${key}`
   var response = await fetch(u)
   if (response.ok) { // if HTTP-status is 200-299
     var json = await response.json();
@@ -47,7 +47,7 @@ async function getTxs(address) {
   var from, txs2
   while (n===10000) {
     from = txs[txs.length - 1].blockNumber
-    u = `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=${from}&endblock=99999999&sort=asc&apikey=${key}`
+    u = `https://api.bscscan.com/api?module=account&action=txlist&address=${address}&startblock=${from}&endblock=99999999&sort=asc&apikey=${key}`
     response = await fetch(u)
     if (response.ok) { // if HTTP-status is 200-299
       json = await response.json();
