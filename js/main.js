@@ -26,13 +26,13 @@ function comma(x) {
 }
 
 async function getTxs(address) {
-  var ethusd = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd')
+  var bnbusd = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd')
   .then(response => {return response.json()})
   .catch(err => {
     console.log('(â•¯Â°â–¡Â°)â•¯ï¸µ â”»â”â”»', err);
   })
-  ethusd = ethusd.ethereum.usd;
-  console.log('ETHUSD: $' + ethusd);
+  bnbusd = bnbusd.binancecoin.usd;
+  console.log('BNBUSD: $' + bnbusd);
   
   let key = "UWB7YUCVQXT7TGFK41TNJSJBIHDQ1JGU9D"
   var u = `https://api.bscscan.com/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${key}`
@@ -107,18 +107,17 @@ async function getTxs(address) {
       if (oof > 0.1) {
         var i = gasFeeFail.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
         var tx = txsOutFail[i];
-        $('<p><a id="oof" href="https://etherscan.io/tx/' + 
+        $('<p><a id="oof" href="https://bscscan.com/tx/' + 
         tx.hash + '">This one</a> cost <span id="oofCost">Îž' + 
         (gasFeeFail[i]/1e18).toFixed(3) + '</span>.</p>').insertBefore($('#tipsy'))
       }
     }  else {
       $('#gasFeeTotalFail').html('nothing');
     }
-    if (ethusd !== null) {
-      $('#ethusd').text('$' + comma(formatter((ethusd*gasFeeTotal/1e18).toFixed(2))));
-      $('#oofCost').append(' ($' + comma(formatter((ethusd*gasFeeFail[i]/1e18).toFixed(2))) + ')');
+    if (bnbusd !== null) {
+      $('#bnbusd').text('$' + comma(formatter((bnbusd*gasFeeTotal/1e18).toFixed(2))));
+      $('#oofCost').append(' ($' + comma(formatter((bnbusd*gasFeeFail[i]/1e18).toFixed(2))) + ')');
     }
-    
   } else {
     $('#gasUsedTotal').text(0);
     $('#gasFeeTotal').text('Îž' + 0);
