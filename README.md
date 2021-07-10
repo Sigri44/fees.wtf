@@ -8,4 +8,4 @@ Calculate fees for BSC (Binance Smart Chain) network.
 ## Polygon (Matic)
 Calculate fees for Polygon (Matic) network.
 
-<a href="https://fees.sigri44.com/matic" target="_blank">fees.sigri44.com/matic</a>
+<a href="https://fees.sigri44.com/matic/" target="_blank">fees.sigri44.com/matic</a>
