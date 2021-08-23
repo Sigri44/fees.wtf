@@ -3,7 +3,7 @@
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="application/javascript"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.1.umd.min.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta charset="UTF-8">
     <title>fees.wtf?</title>
@@ -30,7 +30,7 @@
             </g>
         </defs>
     </svg>
-    <p>You've spent <span id="gasFeeTotal">&#x1F914</span> on gas. Right now, that's <span id="bnbusd">&#x1F914</span>.</p>
+    <p>You've spent <span id="gasFeeTotal">&#x1F914</span> on gas. Right now, that's <span id="tokenusd">&#x1F914</span>.</p>
     <p>You used <span id="gasUsedTotal">&#x1F914</span> gas to send <span id="nOut">&#x1F914</span> transactions, with an average price of <span id="gasPricePerTx">&#x1F914</span> gwei.</p>
     <p><span id="nOutFail">Ḇ</span> of them failed, costing you <span id="gasFeeTotalFail">&#x1F914</span>.</p>
     
@@ -39,32 +39,32 @@
             <svg class="nightIcon" viewBox="0 0 100 100"><use xlink:href="#nightIcon"></use></svg>
             <svg class="dayIcon" viewBox="0 0 35 35"><use xlink:href="#dayIcon"></use></svg>
         </div>
-        <!--
-        Tip me: <span class='tip' id='tinytip'>Ḇ0.001</span> | <span class='tip' id='smalltip'>Ḇ0.010</span> | <span class='tip' id='bigtip'>Ḇ0.100</span> | <span class='tip' id='hugetip'>Ḇ1.000</span>
-        -->
-        Tip me: 0x5237f30BB101F36deD9fc77a1753878958Cfdf9a
-    
-        
+        Tip me: <span class='tip' id='tinytip'>0.001</span> | <span class='tip' id='smalltip'>0.010</span> | <span class='tip' id='bigtip'>0.100</span> | <span class='tip' id='hugetip'>1.000</span>
+        <!-- Tip me: 0x5237f30BB101F36deD9fc77a1753878958Cfdf9a -->
     </div>
     <footer>
-        <p id='attrib'>Powered by <strong><a href='https://bscscan.com/apis'>Bscscan.io</a></strong> and <strong><a href='https://www.coingecko.com/en/api'>CoinGecko</a></strong> APIs</p>
+        <p id='attrib'>Powered by <strong><a href='https://github.com/Sigri44' target="_blank">Sigri</a></strong> and <strong><a href='https://www.coingecko.com/en/api' target="_blank">CoinGecko</a></strong> APIs</p>
     </footer>
 </body>
 <script>
     window.addEventListener('load', async () => {
+        window.ethereum.on('chainChanged', (chainId) => {
+            location.reload()
+        });
+
         let params = getUrlVars();
         let address = params.address || params.a || null;
         if (address == null) {
             if(window.hasOwnProperty("ethereum") && window.ethereum.hasOwnProperty("isMetaMask")) {
                 let addresses = await ethereum.request({ method: 'eth_requestAccounts' });
                 address = addresses[0];
-                console.log('Connected to', address)
             } else {
                 console.log('Specify an address via ?a= or ?address= url GET parameter, or sign into MetaMask.')
-                $('body').html('<p id="oops">Sign into <strong><a href="https://metamask.io">MetaMask</a></strong> or pass an address via the url (like <strong><a href="http://fees.wtf?address=0xcdd6a2b9dd3e386c8cd4a7ada5cab2f1c561182d">this</a></strong>).</p>')
+                $('body').html('<p id="oops">Sign into <strong><a href="https://metamask.io">MetaMask</a></strong><!-- or pass an address via the url (like <strong><a href="http://fees.wtf?address=0xcdd6a2b9dd3e386c8cd4a7ada5cab2f1c561182d">this</a></strong>)-->.</p>')
                 return;
             }
         }
+
         main(address)
     });
     
