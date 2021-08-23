@@ -1,11 +1,14 @@
 # fees.wtf
 
-## Binance Smart Chain
-Calculate fees for BSC (Binance Smart Chain) network.
-
+Calculate fees for multichain network.
 <a href="https://fees.sigri44.com" target="_blank">fees.sigri44.com</a>
 
-## Polygon (Matic)
-Calculate fees for Polygon (Matic) network.
+## Supported chains
+- Ethereum
+- Polygon
+- Binance Smart Chain
+- xDai
+- Fantom
 
-<a href="https://fees.sigri44.com/matic/" target="_blank">fees.sigri44.com/matic</a>
+## Coming Soon
+- Avalanche (waiting for API access)
