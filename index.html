@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>fees.wtf?</title>
+    <title>fees.sigri44.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -27,9 +27,19 @@
             </g>
         </defs>
     </svg>
-    <p>You've spent <span id="gasFeeTotal">&#x1F914</span> on gas. Right now, that's <span id="tokenusd">&#x1F914</span>.</p>
-    <p>You used <span id="gasUsedTotal">&#x1F914</span> gas to send <span id="nOut">&#x1F914</span> transactions, with an average price of <span id="gasPricePerTx">&#x1F914</span> gwei.</p>
-    <p><span id="nOutFail">&#x1F914</span> of them failed, costing you <span id="gasFeeTotalFail">&#x1F914</span>.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Chain</th>
+                <th>Symbol</th>
+                <th>Gas Fee Total</th>
+                <!-- <th>Transactions</th> -->
+                <th>Avg. Gwei</th>
+                <th>Total cost</th>
+            </tr>
+        </thead>
+        <tbody id="resultTableBody"></tbody>
+    </table>
     
     <div id="tipsy">
         <div class="toggle">

@@ -8,8 +8,10 @@ Calculate fees for multichain network.
 - Ethereum
 - Polygon
 - Binance Smart Chain
-- xDai
+- Gnosis
 - Fantom
+- Arbitrum
+- Optimism
 
 ## Coming Soon
 - Avalanche (waiting for API access)
